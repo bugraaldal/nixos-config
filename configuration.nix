@@ -5,6 +5,7 @@
 { config, pkgs, ... }:
 {
 nix.settings.experimental-features = ["nix-command" "flakes"];
+nix.settings.trusted-users = ["root" "buura"];
 virtualisation.docker.enable = true;
 nix.gc = {
     automatic = true;
@@ -169,6 +170,9 @@ nix.gc = {
     neofetch
     gh
     lshw
+    nodejs_22
+    signal-desktop
+    vlc
   ];
   
   programs.steam = {
