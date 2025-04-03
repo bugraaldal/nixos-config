@@ -173,6 +173,7 @@ nix.gc = {
     nodejs_22
     signal-desktop
     vlc
+    librewolf # firefox betrayel
   ];
   
   programs.steam = {
