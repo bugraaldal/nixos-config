@@ -174,6 +174,7 @@ nix.gc = {
     signal-desktop
     vlc
     librewolf # firefox betrayel
+    tree
   ];
   
   programs.steam = {
