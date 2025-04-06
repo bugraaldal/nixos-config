@@ -175,6 +175,8 @@ nix.gc = {
     vlc
     librewolf # firefox betrayel
     tree
+    arduino-ide
+    arduino-cli
   ];
   
   programs.steam = {
