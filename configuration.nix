@@ -177,6 +177,9 @@ nix.gc = {
     tree
     arduino-ide
     arduino-cli
+    prismlauncher 
+    wineWowPackages.stable
+    lazygit
   ];
   
   programs.steam = {
