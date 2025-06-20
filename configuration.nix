@@ -54,8 +54,11 @@ nix.gc = {
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.plasma5.enable = true;
+  services.displayManager.sddm.enable = true;
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -116,6 +119,7 @@ nix.gc = {
 		nvidiaBusId = "PCI:1:0:0";
 	};
 
+  services.cloudflare-warp.enable = true;
   
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -149,6 +153,16 @@ nix.gc = {
   # Install firefox.
   programs.firefox.enable = true;
 
+  programs.steam = {
+    enable = true;
+    # Open ports in the firewall for Steam Remote Play
+    remotePlay.openFirewall = true;
+    # Open ports in the firewall for Source Dedicated Server
+    dedicatedServer.openFirewall = true;
+    # Open ports in the firewall for Steam Local Network Game Transfers
+    localNetworkGameTransfers.openFirewall = true;
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -173,24 +187,16 @@ nix.gc = {
     nodejs_22
     signal-desktop
     vlc
-    librewolf # firefox betrayel
     tree
     arduino-ide
     arduino-cli
     prismlauncher 
     wineWowPackages.stable
     lazygit
+    byedpi
+    discord
+    # gnomeExtensions.cloudflare-warp-toggle
   ];
-  
-  programs.steam = {
-    enable = true;
-    # Open ports in the firewall for Steam Remote Play
-    remotePlay.openFirewall = true;
-    # Open ports in the firewall for Source Dedicated Server
-    dedicatedServer.openFirewall = true;
-    # Open ports in the firewall for Steam Local Network Game Transfers
-    localNetworkGameTransfers.openFirewall = true;
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
